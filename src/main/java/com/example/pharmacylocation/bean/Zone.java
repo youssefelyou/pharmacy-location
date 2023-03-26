@@ -37,4 +37,22 @@ public class Zone {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    public Ville getVille() {
+        return ville;
+    }
+
+    public void setVille(Ville ville) {
+        this.ville = ville;
+    }
+
+    public List<Pharmacie> getPharmacieList() {
+        return pharmacieList;
+
+
+    }
+
+    public void setPharmacieList(List<Pharmacie> pharmacieList) {
+        this.pharmacieList = pharmacieList;
+    }
 }

@@ -15,6 +15,14 @@ public class Ville {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Zone> zones;
 
+    public List<Zone> getZones() {
+        return zones;
+    }
+
+    public void setZones(List<Zone> zones) {
+        this.zones = zones;
+    }
+
     public Ville() {
     }
 
