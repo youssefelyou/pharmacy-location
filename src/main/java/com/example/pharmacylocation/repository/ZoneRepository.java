@@ -4,10 +4,13 @@ import com.example.pharmacylocation.bean.Zone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ZoneRepository extends JpaRepository<Zone,Integer> {
 
-    Zone findById(int id);
+    List<Zone> findByVilleId(int cityId);
+
 
 
 }

@@ -36,6 +36,17 @@ public class VilleController {
         villeService.save(ville);
     }
 
+    @PutMapping("/{id}")
+    public Ville updateCity(@PathVariable int id, @RequestBody Ville ville) {
+        Ville existingCity = villeService.findById(id);
+        if (existingCity != null) {
+            existingCity.setNom(ville.getNom());
+            return villeService.save(existingCity);
+        }
+        return null;
+    }
+
+
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable int id) {
         villeService.deleteById(id);

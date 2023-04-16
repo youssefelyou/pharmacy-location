@@ -4,6 +4,7 @@ package com.example.pharmacylocation.bean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+
 import java.util.List;
 
 @Entity
@@ -55,4 +56,5 @@ public class Zone {
     public void setPharmacieList(List<Pharmacie> pharmacieList) {
         this.pharmacieList = pharmacieList;
     }
+
 }
