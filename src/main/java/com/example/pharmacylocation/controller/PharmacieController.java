@@ -21,7 +21,7 @@ public class PharmacieController {
         return pharmacieService.findById(id);
     }
 
-    @GetMapping("/pharmacies")
+    @GetMapping("/")
     public List<Pharmacie> findAll() {
         return pharmacieService.findAll();
     }
