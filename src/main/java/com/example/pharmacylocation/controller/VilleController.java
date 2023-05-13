@@ -5,6 +5,7 @@ import com.example.pharmacylocation.bean.Ville;
 import com.example.pharmacylocation.bean.Zone;
 import com.example.pharmacylocation.service.VilleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,14 +18,18 @@ public class VilleController {
     @Autowired
     private VilleService villeService;
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/id/{id}")
     public Ville findById(@PathVariable int id) {
         return villeService.findById(id);
     }
 
-    @GetMapping("/find/{nom}")
-    public Ville findByNom(@PathVariable String nom) {
-        return villeService.findByNom(nom);
+    @GetMapping("/nom/{nom}")
+    public ResponseEntity<Ville> findByNom(@PathVariable String nom) {
+        Ville ville = villeService.findByNom(nom);
+        if (ville == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(ville);
     }
 
     @GetMapping("/")

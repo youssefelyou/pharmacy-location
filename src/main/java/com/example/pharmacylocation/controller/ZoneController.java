@@ -3,6 +3,7 @@ package com.example.pharmacylocation.controller;
 import com.example.pharmacylocation.bean.Zone;
 import com.example.pharmacylocation.service.ZoneService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,10 +34,7 @@ public class ZoneController {
     }
 
     @PostMapping("/save")
-    public Zone save(@RequestBody Zone zone) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(zone);
-        System.out.println(json);
+    public Zone save(@RequestBody Zone zone)  {
         return zoneService.save(zone);
     }
 
