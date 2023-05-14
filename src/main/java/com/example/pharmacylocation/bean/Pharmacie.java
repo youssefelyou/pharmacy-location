@@ -13,6 +13,7 @@ public class Pharmacie {
     private double longitude;
     private String photo;
 
+
     @ManyToOne
     private Zone zone;
 
@@ -69,4 +70,14 @@ public class Pharmacie {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
+    public Zone getZone() {
+        return zone;
+    }
+
+    public void setZone(Zone zone) {
+        this.zone = zone;
+    }
+
+
 }
