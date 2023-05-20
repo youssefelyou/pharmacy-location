@@ -31,9 +31,9 @@ public class PharmacieController {
         pharmacieService.save(pharmacie);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deleteById(@PathVariable int id) {
-        pharmacieService.deleteById(id);
+    @DeleteMapping("/delete/{integer}")
+    public void deleteById(@PathVariable int integer) {
+        pharmacieService.deleteById(integer);
     }
 
 }
