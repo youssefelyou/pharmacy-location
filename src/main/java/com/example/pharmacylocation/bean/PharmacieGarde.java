@@ -1,5 +1,6 @@
 package com.example.pharmacylocation.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -11,6 +12,7 @@ public class PharmacieGarde {
     private PharmacieGardePK pk;
 
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dateFin;
 
     @ManyToOne

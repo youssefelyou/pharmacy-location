@@ -1,6 +1,9 @@
 package com.example.pharmacylocation.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,6 +13,9 @@ public class PharmacieGardePK  implements Serializable {
 
 private int pharmacie;
 private int garde;
+
+@Temporal(TemporalType.DATE)
+@JsonFormat(pattern = "dd/MM/yyyy")
 private Date dateDebut;
 
     public PharmacieGardePK() {
