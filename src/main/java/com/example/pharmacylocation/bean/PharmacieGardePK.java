@@ -14,7 +14,7 @@ public class PharmacieGardePK  implements Serializable {
 private int pharmacie;
 private int garde;
 
-@Temporal(TemporalType.DATE)
+
 @JsonFormat(pattern = "dd/MM/yyyy")
 private Date dateDebut;
 

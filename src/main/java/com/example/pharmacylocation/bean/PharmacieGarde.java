@@ -11,7 +11,7 @@ public class PharmacieGarde {
     @EmbeddedId
     private PharmacieGardePK pk;
 
-    @Temporal(TemporalType.DATE)
+
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dateFin;
 
