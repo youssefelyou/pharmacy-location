@@ -8,6 +8,7 @@ import jakarta.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
 
+
 @Embeddable
 public class PharmacieGardePK  implements Serializable {
 
@@ -15,10 +16,17 @@ private int pharmacie;
 private int garde;
 
 
-@JsonFormat(pattern = "dd/MM/yyyy")
+@Temporal(TemporalType.DATE)
 private Date dateDebut;
 
     public PharmacieGardePK() {
+    }
+
+
+    public PharmacieGardePK(int pharmacie, int garde, Date dateDebut) {
+        this.pharmacie = pharmacie;
+        this.garde = garde;
+        this.dateDebut = dateDebut;
     }
 
     public int getPharmacie() {
@@ -44,4 +52,6 @@ private Date dateDebut;
     public void setDateDebut(Date dateDebut) {
         this.dateDebut = dateDebut;
     }
+
+
 }

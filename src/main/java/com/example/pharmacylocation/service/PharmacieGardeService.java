@@ -5,6 +5,7 @@ import com.example.pharmacylocation.bean.Pharmacie;
 import com.example.pharmacylocation.bean.PharmacieGarde;
 import com.example.pharmacylocation.bean.PharmacieGardePK;
 import com.example.pharmacylocation.repository.PharmacieGardeRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,18 @@ public class PharmacieGardeService {
         return pharmacieGardeRepository.findById(pharmacieGardePK);
     }
 
-    public void deleteById(PharmacieGardePK pharmacieGardePK) {
-        pharmacieGardeRepository.deleteById(pharmacieGardePK);
+    public PharmacieGarde findByDateDebut(Date datedebut, int idpharmacie, int idgarde){
+        return this.findAll().stream().filter(pharmacieGarde ->
+                        pharmacieGarde.getPk().getDateDebut().equals(datedebut) &&
+                                pharmacieGarde.getPk().getPharmacie() == idpharmacie &&
+                                pharmacieGarde.getPk().getGarde() == idgarde )
+                .findFirst().orElse(null);
     }
+
+    @Transactional
+    public void deleteByDateDebut(Date datedebut, int idpharmacie, int idgarde) {
+        PharmacieGarde pharmacieGarde  = this.findById(new PharmacieGardePK(idpharmacie,idgarde,datedebut)).orElseThrow();
+        this.pharmacieGardeRepository.deleteById(pharmacieGarde.getPk());
+    }
+
 }

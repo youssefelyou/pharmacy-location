@@ -12,7 +12,7 @@ public class PharmacieGarde {
     private PharmacieGardePK pk;
 
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Temporal(TemporalType.DATE)
     private Date dateFin;
 
     @ManyToOne
