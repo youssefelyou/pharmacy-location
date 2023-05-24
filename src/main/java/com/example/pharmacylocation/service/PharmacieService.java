@@ -33,14 +33,14 @@ public class PharmacieService {
         return pharmacieRepository.findAll();
     }
 
-    public void update(Integer id,Pharmacie pharmacieinfo) {
-        Pharmacie pharmacie=pharmacieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("pharmacie not found with id " + id));
-        pharmacie.setAddresse(pharmacieinfo.getAddresse());
-        pharmacie.setNom(pharmacieinfo.getNom());
-        pharmacie.setZone(pharmacieinfo.getZone());
-        pharmacie.setLatitude(pharmacieinfo.getLatitude());
-        pharmacie.setLongitude(pharmacieinfo.getLongitude());
-        pharmacie.setPhoto(pharmacieinfo.getPhoto());
-        pharmacieRepository.save(pharmacie);
+    public void update(Integer id,Pharmacie pharmacie) {
+        Pharmacie ph=pharmacieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("pharmacie not found with id " + id));
+        ph.setAddresse(pharmacie.getAddresse());
+        ph.setNom(pharmacie.getNom());
+        ph.setZone(pharmacie.getZone());
+        ph.setLatitude(pharmacie.getLatitude());
+        ph.setLongitude(pharmacie.getLongitude());
+        ph.setPhoto(pharmacie.getPhoto());
+        pharmacieRepository.save(ph);
     }
 }

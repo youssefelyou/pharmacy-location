@@ -36,4 +36,9 @@ public class PharmacieController {
         pharmacieService.deleteById(integer);
     }
 
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id,@RequestBody Pharmacie pharmacie) {
+        pharmacieService.update(id, pharmacie);
+    }
+
 }
