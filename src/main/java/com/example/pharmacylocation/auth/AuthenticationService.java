@@ -48,7 +48,6 @@ public class AuthenticationService {
         saveUserToken(user, jwtToken);
         String jsonString = "";
         try {
-            // Convert the object to a JSON string
             jsonString = objectMapper.writeValueAsString(user);
             System.out.println(jsonString);
         } catch (JsonProcessingException e) {
