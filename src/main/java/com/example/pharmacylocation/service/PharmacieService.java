@@ -43,4 +43,8 @@ public class PharmacieService {
         ph.setPhoto(pharmacie.getPhoto());
         pharmacieRepository.save(ph);
     }
+
+    public List<Pharmacie> findPharmacyAvailableZonePer(String ville, String zone, String period) {
+        return pharmacieRepository.findPharmacyAvailableZonePer(ville, zone, period);
+    }
 }

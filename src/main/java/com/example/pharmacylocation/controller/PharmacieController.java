@@ -41,4 +41,9 @@ public class PharmacieController {
         pharmacieService.update(id, pharmacie);
     }
 
+    @GetMapping("/ville/{ville}/zone/{zone}/period/{period}")
+    public List<Pharmacie> findPharmacyAvailableZonePer(@PathVariable String ville,@PathVariable String zone,@PathVariable String period) {
+        return pharmacieService.findPharmacyAvailableZonePer(ville, zone, period);
+    }
+
 }

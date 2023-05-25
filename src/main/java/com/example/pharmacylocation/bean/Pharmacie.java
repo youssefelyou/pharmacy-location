@@ -1,6 +1,9 @@
 package com.example.pharmacylocation.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Pharmacie {
@@ -19,6 +22,10 @@ public class Pharmacie {
 
     @ManyToOne
     private User user;
+
+    @OneToMany(mappedBy = "pharmacie")
+    @JsonIgnore
+    private List<PharmacieGarde> pharmacieGardeList;
 
     public Pharmacie() {
     }
