@@ -2,9 +2,6 @@ package com.example.pharmacylocation.controller;
 
 import com.example.pharmacylocation.bean.Zone;
 import com.example.pharmacylocation.service.ZoneService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.json.JsonReadFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +20,7 @@ public class ZoneController {
         return zoneService.getZoneById(id);
     }
 
-    @GetMapping("/ville/{cityId}")
+    @GetMapping("/villeid/{cityId}")
     public List<Zone> getZonesByVilleId(@PathVariable int cityId) {
         return zoneService.getZonesByVilleId(cityId);
     }
@@ -47,5 +44,10 @@ public class ZoneController {
     public Zone updateZone(@PathVariable int id, @RequestBody Zone zone) {
         zone.setId(id);
         return zoneService.save(zone);
+    }
+
+    @GetMapping("/ville/{nom}")
+    public List<Zone> getAllZone(@PathVariable String nom){
+        return zoneService.findAllByVille(nom);
     }
 }

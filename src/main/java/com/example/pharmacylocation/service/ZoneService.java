@@ -47,4 +47,9 @@ public class ZoneService {
         zone.setVille(zoneDetails.getVille());
         return zoneRepository.save(zone);
     }
+
+    public List<Zone> findAllByVille(String nom){
+
+        return zoneRepository.findZoneByVille(nom);
+    }
 }
