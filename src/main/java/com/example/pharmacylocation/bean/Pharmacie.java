@@ -14,6 +14,7 @@ public class Pharmacie {
     private String addresse;
     private double latitude;
     private double longitude;
+    @Column(length =5000000)
     private String photo;
 
 

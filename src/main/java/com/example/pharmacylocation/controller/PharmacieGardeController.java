@@ -16,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/pharmaciegarde")
+@CrossOrigin
 public class PharmacieGardeController {
 
 
